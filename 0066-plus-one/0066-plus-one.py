@@ -1,22 +1,15 @@
 class Solution(object):
-
   def plusOne(self, digits):
     n = len(digits)
-    temp = 0
 
-    for digit in digits:
-      temp = temp * 10 + digit
+    for i in range(n - 1, -1, -1):
+      if digits[i] < 9:
+        digits[i] += 1
+        return digits  
+      
+      digits[i] = 0 
 
-    temp = temp + 1
-    digits = []
-    
-    while temp > 0:
-      digits.append(temp % 10)
-      temp = temp // 10
-
-    digits = digits[::-1]
-
-    return digits
+    return [1] + digits
 
 # Synced seamlessly with LeetHub Pro
 # Pro features: https://bit.ly/leethubpro | Free version: https://bit.ly/leethubv4
