@@ -7,13 +7,13 @@ class Solution(object):
             fast = fast.next.next
 
             if slow == fast:
-                ptr = head
+                slow = head
 
-                while ptr != slow:
-                    ptr = ptr.next
+                while slow != fast:
                     slow = slow.next
+                    fast = fast.next
                     
-                return ptr
+                return slow
 
         return None
 
