@@ -1,10 +1,17 @@
 class Solution(object):
     def maxSubArray(self, nums):
-        n = len(nums)
-        for i in range(1, n):
-            if nums[i-1] > 0:
-                nums[i] += nums[i-1]
-        return max(nums)
+        i = 0
+        best = nums[i]
+        ans = nums[i]
+
+        for i in range (1,len(nums)):
+            v1 = best + nums[i]
+            v2 = nums[i]
+            
+            best = max(v1,v2)
+            ans = max(ans,best)
+
+        return ans
 
 # Synced seamlessly with LeetHub Pro
 # Pro features: https://bit.ly/leethubpro | Free version: https://bit.ly/leethubv4
