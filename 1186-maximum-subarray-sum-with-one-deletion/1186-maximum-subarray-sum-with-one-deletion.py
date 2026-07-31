@@ -1,22 +1,15 @@
 class Solution(object):
     def maximumSum(self, arr):
         no_del = arr[0]
-        one_del = float('inf')
+        one_del = 0
         res = arr[0]
-        v2 = 0
 
-        for i in range (1, len(arr)):
+        for i in range (1,len(arr)):
             prev_no_del = no_del
             prev_one_del = one_del
 
-            if prev_one_del == float('inf'):
-                v2 = arr[i]
-
-            else:
-                v2 = prev_one_del + arr[i]
-
             no_del = max(no_del + arr[i], arr[i])
-            one_del = max(v2, prev_no_del)
+            one_del = max(prev_one_del + arr[i], prev_no_del)
 
             res = max(res, max(one_del, no_del))
         
