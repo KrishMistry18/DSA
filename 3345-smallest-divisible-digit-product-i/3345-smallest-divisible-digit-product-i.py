@@ -1,0 +1,19 @@
+class Solution(object):
+    def smallestNumber(self, n, t):
+
+        while True:
+            temp = n
+            product = 1
+
+            while temp > 0:
+                product *= temp % 10
+                temp //= 10
+
+            if product % t == 0:
+                return n
+
+            n += 1
+
+# Synced seamlessly with LeetHub Pro
+# Pro features: https://bit.ly/leethubpro | Free version: https://bit.ly/leethubv4
+# Get it here: https://chromewebstore.google.com/detail/bcilpkkbokcopmabingnndookdogmbna
