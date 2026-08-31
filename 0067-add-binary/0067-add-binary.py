@@ -1,0 +1,25 @@
+class Solution(object):
+    def addBinary(self, a, b):
+        i = len(a) - 1
+        j = len(b) - 1
+        carry = 0
+        result = []
+
+        while i >= 0 or j >= 0 or carry:
+            
+            x = int(a[i]) if i >= 0 else 0
+            y = int(b[j]) if j >= 0 else 0
+
+            total = x + y + carry
+
+            result.append(str(total % 2))
+            carry = total // 2
+
+            i -= 1
+            j -= 1
+
+        return ''.join(result[::-1])
+
+# Synced seamlessly with LeetHub Pro
+# Pro features: https://bit.ly/leethubpro | Free version: https://bit.ly/leethubv4
+# Get it here: https://chromewebstore.google.com/detail/bcilpkkbokcopmabingnndookdogmbna
